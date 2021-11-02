@@ -10,11 +10,10 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/remotecommand"
-	"os"
 	"strings"
 )
 
-var Namespace = getenv("NAMESPACE", "default")
+var Namespace = Getenv("NAMESPACE", "default")
 
 func GetPostgresPods() ([]v1.Pod, error) {
 	clientset, err := ClientSet()
@@ -142,14 +141,4 @@ func execCommand(pod *v1.Pod, command string) (string, string, error) {
 	}
 
 	return buf.String(), errBuf.String(), nil
-}
-
-func getenv(name string, defaultValue string) string {
-	value := os.Getenv(name)
-
-	if len(value) == 0 {
-		value = defaultValue
-	}
-
-	return value
 }
