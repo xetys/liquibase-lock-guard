@@ -43,7 +43,7 @@ func CheckPodForLock(pod *v1.Pod) (bool, error) {
 		return false, fmt.Errorf("count not find postgres user for pod %s", pod.Name)
 	}
 
-	out, errOut, err := execCommand(pod, "psql -U "+postgresUser+" -c \"select * from databasechangeloglock where lockgranted < current_timestamp - '10 hours'::interval\"")
+	out, errOut, err := execCommand(pod, "psql -U "+postgresUser+" -c \"select * from databasechangeloglock where lockgranted < current_timestamp - '20 minutes'::interval\"")
 
 	if err != nil {
 		return false, err
