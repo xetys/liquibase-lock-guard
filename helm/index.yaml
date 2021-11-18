@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  liquibase-lock-guard:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-11-18T13:38:03.249190052+01:00"
+    description: A Helm chart for Kubernetes
+    digest: d761dacf1713bd6ce847292514bd45d56c512bfd2ea9dca412a440fa0f0e9368
+    name: liquibase-lock-guard
+    type: application
+    urls:
+    - liquibase-lock-guard/liquibase-lock-guard-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-11-18T13:38:03.248913523+01:00"
