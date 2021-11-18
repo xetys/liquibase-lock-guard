@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: liquibase-lock-guard
+  name: liquibase-lock-guard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: liquibase-lock-guard
+  template:
+    metadata:
+      labels:
+        app: liquibase-lock-guard
+    spec:
+      serviceAccountName: liquibase-lock-guard
+      containers:
+        - image: ghcr.io/xetys/liquibase-lock-guard:latest
+          name: liquibase-lock-guard
+          imagePullPolicy: Always
+          env:
+            - name: NAMESPACE
+              value: {{ .Release.Namespace }}

@@ -3,4 +3,4 @@
 *.iml
 
 .idea/
-liquibase-lock-guard
+/liquibase-lock-guard
